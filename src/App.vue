@@ -1,6 +1,9 @@
+<script setup lang="ts">
+import { Button } from "@/shared/components/ui/button";
+</script>
+
 <template>
-  <div id="app">
-    <h1>My Vue App</h1>
-    <p>This is a simple Vue.js application.</p>
+  <div>
+    <Button>Click me</Button>
   </div>
 </template>
