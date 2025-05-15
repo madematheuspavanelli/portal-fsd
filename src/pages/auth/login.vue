@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import Login from "@/features/auth/login";
+</script>
+
 <template>
-  <h1>Login</h1>
+  <Login />
 </template>
