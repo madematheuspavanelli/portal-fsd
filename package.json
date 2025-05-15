@@ -7,12 +7,16 @@
     "dev": "vite",
     "test": "vitest --run",
     "test:watch": "vitest",
+    "lint": "eslint --ext .ts,.tsx,.vue src --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,vue,json,md,css,scss}\"",
+    "format:all": "npm run lint && npm run format",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.6",
     "@tanstack/vue-query": "^5.76.0",
+    "@vee-validate/zod": "^4.15.0",
     "@vueuse/core": "^13.2.0",
     "axios": "^1.9.0",
     "class-variance-authority": "^0.7.1",
@@ -23,9 +27,11 @@
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.6",
     "tw-animate-css": "^1.2.9",
+    "vee-validate": "^4.15.0",
     "vue": "^3.5.13",
     "vue-i18n": "11",
     "vue-router": "4",
+    "vue-sonner": "^1.3.2",
     "zod": "^3.24.4"
   },
   "devDependencies": {
