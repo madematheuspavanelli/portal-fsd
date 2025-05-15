@@ -3,17 +3,18 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 import { useAuthFormState } from "@/features/auth/login/model/useAuthFormState";
-
-const otp = ref("");
-const loading = ref(false);
+import { PinInput, PinInputGroup } from "@/shared/components/ui/pin-input";
+import PinInputSlot from "@/shared/components/ui/pin-input/PinInputSlot.vue";
 
 const router = useRouter();
 const { toLogin } = useAuthFormState();
 
-function submit() {
-  loading.value = true;
+const value = ref<string[]>(["1", "2", "3"]);
+
+function submit(e: string[]) {
+  const pininput = e.join("");
+  console.log("submit", pininput);
   setTimeout(() => {
-    loading.value = false;
     router.push({ name: "dashboard" });
     toLogin();
   }, 1000);
@@ -21,18 +22,11 @@ function submit() {
 </script>
 
 <template>
-  <form @submit.prevent="submit" class="space-y-4">
-    <input
-      v-model="otp"
-      type="text"
-      maxlength="6"
-      placeholder="Digite o código OTP"
-      required
-      class="w-full border p-2 text-center tracking-widest"
-    />
-
-    <button type="submit" class="w-full bg-blue-500 py-2 text-white">
-      {{ loading ? "Validando..." : "Confirmar" }}
-    </button>
-  </form>
+  <div>
+    <PinInput id="pin-input" v-model="value" placeholder="○" @complete="submit">
+      <PinInputGroup>
+        <PinInputSlot v-for="(id, index) in 5" :key="id" :index="index" />
+      </PinInputGroup>
+    </PinInput>
+  </div>
 </template>

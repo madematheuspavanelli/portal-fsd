@@ -9,7 +9,9 @@ const { currentState } = useAuthFormState();
 </script>
 
 <template>
-  <LoginForm v-if="currentState === 'LOGIN'" />
-  <ForgotPasswordForm v-else-if="currentState === 'FORGOT_PASSWORD'" />
-  <OTPForm v-else-if="currentState === 'OTP'" />
+  <div class="w-full max-w-96">
+    <LoginForm v-if="currentState === 'LOGIN'" />
+    <ForgotPasswordForm v-else-if="currentState === 'FORGOT_PASSWORD'" />
+    <OTPForm v-else-if="currentState === 'OTP'" />
+  </div>
 </template>
