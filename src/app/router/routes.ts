@@ -1,16 +1,4 @@
-import DashboardPage from "@/pages/dashboard/index.vue";
-import LoginPage from "@/pages/login/index.vue";
+import { privateRoutes } from "./routes/private.routes";
+import { publicRoutes } from "./routes/public.routes";
 
-export default [
-  {
-    path: "/login",
-    name: "login",
-    component: LoginPage,
-  },
-  {
-    path: "/dashboard",
-    name: "dashboard",
-    component: DashboardPage,
-    meta: { requiresAuth: true },
-  },
-];
+export default [publicRoutes, privateRoutes];

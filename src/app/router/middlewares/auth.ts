@@ -5,11 +5,11 @@ export default function authMiddleware(
   _from: RouteLocationNormalized,
   next: NavigationGuardNext,
 ) {
-  const token = sessionStorage.getItem("token");
+  // const token = sessionStorage.getItem("token");
 
-  if (to.meta.requiresAuth && !token) {
-    return next({ name: "login" });
-  }
+  // if (to.meta.requiresAuth && !token) {
+  //   return next({ name: "login" });
+  // }
 
   return next();
 }
