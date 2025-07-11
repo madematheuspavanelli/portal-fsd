@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { type Component, computed } from "vue";
+import { reactiveOmit } from "@vueuse/core";
+import type { Component } from "vue";
 
 import {
   Tooltip,
@@ -31,10 +32,7 @@ const props = withDefaults(
 
 const { isMobile, state } = useSidebar();
 
-const delegatedProps = computed(() => {
-  const { tooltip, ...delegated } = props;
-  return delegated;
-});
+const delegatedProps = reactiveOmit(props, "tooltip");
 </script>
 
 <template>

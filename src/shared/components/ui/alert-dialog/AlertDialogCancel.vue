@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { reactiveOmit } from "@vueuse/core";
 import { AlertDialogCancel, type AlertDialogCancelProps } from "reka-ui";
-import { computed, type HTMLAttributes } from "vue";
+import type { HTMLAttributes } from "vue";
 
 import { buttonVariants } from "@/shared/components/ui/button";
 import { cn } from "@/shared/lib/utils";
@@ -9,11 +10,7 @@ const props = defineProps<
   AlertDialogCancelProps & { class?: HTMLAttributes["class"] }
 >();
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
-
-  return delegated;
-});
+const delegatedProps = reactiveOmit(props, "class");
 </script>
 
 <template>

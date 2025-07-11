@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { reactiveOmit } from "@vueuse/core";
 import { Check } from "lucide-vue-next";
 import type { CheckboxRootEmits, CheckboxRootProps } from "reka-ui";
 import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from "reka-ui";
-import { computed, type HTMLAttributes } from "vue";
+import type { HTMLAttributes } from "vue";
 
 import { cn } from "@/shared/lib/utils";
 
@@ -11,11 +12,7 @@ const props = defineProps<
 >();
 const emits = defineEmits<CheckboxRootEmits>();
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props;
-
-  return delegated;
-});
+const delegatedProps = reactiveOmit(props, "class");
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
