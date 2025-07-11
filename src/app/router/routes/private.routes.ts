@@ -47,8 +47,8 @@ export const privateRoutes = {
       meta: { requiresAuth: true },
     },
     {
-      path: "docInstructions",
-      name: "docInstructions",
+      path: "docInstruction",
+      name: "docInstruction",
       component: DocInstructionsPage,
       meta: { requiresAuth: true },
     },
