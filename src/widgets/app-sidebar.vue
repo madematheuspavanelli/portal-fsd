@@ -9,6 +9,7 @@ import {
   ReceiptText,
   TruckElectric,
 } from "lucide-vue-next";
+import { useRoute } from "vue-router";
 
 import {
   Sidebar,
@@ -62,6 +63,8 @@ const items = [
     icon: Megaphone,
   },
 ];
+
+const route = useRoute();
 </script>
 
 <template>
@@ -71,7 +74,7 @@ const items = [
         <SidebarGroupContent>
           <SidebarMenu>
             <SidebarMenuItem v-for="item in items" :key="item.title">
-              <SidebarMenuButton asChild>
+              <SidebarMenuButton asChild :isActive="item.url === route.path">
                 <RouterLink :to="item.url">
                   <component :is="item.icon" />
                   <span>{{ item.title }}</span>

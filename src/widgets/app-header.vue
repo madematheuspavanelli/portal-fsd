@@ -15,6 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/shared/components/ui/select";
+import SidebarTrigger from "@/shared/components/ui/sidebar/SidebarTrigger.vue";
 
 const route = useRoute();
 </script>
