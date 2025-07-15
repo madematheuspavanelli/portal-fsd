@@ -1,3 +1,13 @@
+<script lang="ts" setup>
+import {
+  UserManagementTable,
+  UserManagementToolbar,
+} from "@/widgets/user-managment";
+</script>
+
 <template>
-  <h1>User Managment</h1>
+  <div>
+    <UserManagementToolbar />
+    <UserManagementTable />
+  </div>
 </template>
